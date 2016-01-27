@@ -70,7 +70,7 @@ namespace ToDoList
               Category SelectedCategory = Category.Find(parameters.id);
               return View["category_edit.cshtml", SelectedCategory];
             };
-            Post["category/edit/{id}"] = parameters => {
+            Patch["category/edit/{id}"] = parameters => {
               Category SelectedCategory = Category.Find(parameters.id);
               SelectedCategory.Update(Request.Form["category-name"]);
               return View["success.cshtml"];
@@ -81,7 +81,7 @@ namespace ToDoList
               Category SelectedCategory = Category.Find(parameters.id);
               return View["category_delete.cshtml", SelectedCategory];
             };
-            Post["category/delete/{id}"] = parameters => {
+            Delete["category/delete/{id}"] = parameters => {
               Category SelectedCategory = Category.Find(parameters.id);
               SelectedCategory.Delete();
               return View["success.cshtml"];
